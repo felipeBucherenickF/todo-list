@@ -1,3 +1,6 @@
+import "./styles.css";
+import { showTodoListDisplay } from "./todo-list/todo-list-display";
+
 const todoList = [];
 
 class Note {
@@ -31,3 +34,24 @@ class Project extends Todo {
     this.projectTodos.push(newTodo);
   }
 }
+
+const menuContent = document.createElement("h2");
+menuContent.textContent = "Menu";
+
+const todoDetailContent = document.createElement("h2");
+todoDetailContent.textContent = "Todo Detail";
+
+const mainContent = document.getElementById("content");
+mainContent.classList.add("main-content");
+
+const menu = document.createElement("div");
+menu.append(menuContent);
+menu.classList.add("section");
+
+const todoListDisplay = showTodoListDisplay();
+
+const todoDetail = document.createElement("div");
+todoDetail.append(todoDetailContent);
+todoDetail.classList.add("section");
+
+mainContent.append(menu, todoListDisplay, todoDetail);
