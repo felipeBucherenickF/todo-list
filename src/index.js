@@ -1,7 +1,7 @@
 import "./styles.css";
 import { showTodoListDisplay } from "./todo-list/todo-list-display";
 
-const todoList = [];
+export const todoList = [];
 
 class Note {
   constructor(content, isChecked) {
@@ -12,7 +12,7 @@ class Note {
     this.isChecked = true;
   }
 }
-class Todo {
+export class Todo {
   constructor(title, description, dueDate, priority) {
     this.title = title;
     this.description = description;

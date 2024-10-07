@@ -32,3 +32,10 @@ html {
   border: var(--secondary-color) solid 0.4rem;
   border-radius: 0.6rem;
 }
+
+.add-todo-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 3.8rem;
+}
