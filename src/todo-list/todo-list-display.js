@@ -1,5 +1,5 @@
+import { addTodoModal } from "../add-todo/add-todo-modal";
 import "../styles.css";
-import { createTodo } from "./create-todo";
 
 const todoList = JSON.parse(localStorage.getItem("TODOS"));
 
@@ -37,18 +37,22 @@ export const showTodoListDisplay = () => {
   const todoListDisplayTitle = document.createElement("h2");
   todoListDisplayTitle.textContent = "Todo List";
 
-  const todoListDisplayAddTodoButton = document.createElement("button");
-  todoListDisplayAddTodoButton.textContent = "+";
-  todoListDisplayAddTodoButton.classList.add("add-todo-button");
-  todoListDisplayAddTodoButton.addEventListener("click", () => {
-    createTodo("cocinar", "cocinar para la familia", "02-09", "red");
+  const todoListDisplayOpenAddTodoModalButton =
+    document.createElement("button");
+  todoListDisplayOpenAddTodoModalButton.textContent = "+";
+  todoListDisplayOpenAddTodoModalButton.classList.add(
+    "open-add-todo-modal-button"
+  );
+  todoListDisplayOpenAddTodoModalButton.addEventListener("click", () => {
+    const modal = addTodoModal();
+    document.body.appendChild(modal);
   });
 
   const todoListDisplay = document.createElement("div");
   todoListDisplay.append(
     todoListDisplayTitle,
     todos,
-    todoListDisplayAddTodoButton
+    todoListDisplayOpenAddTodoModalButton
   );
   todoListDisplay.classList.add("section");
 

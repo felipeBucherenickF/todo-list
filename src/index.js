@@ -1,8 +1,6 @@
 import "./styles.css";
 import { showTodoListDisplay } from "./todo-list/todo-list-display";
 
-export const todoList = [];
-
 class Note {
   constructor(content, isChecked) {
     this.content = content;
