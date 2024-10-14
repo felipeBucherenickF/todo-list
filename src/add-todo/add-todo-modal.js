@@ -1,4 +1,5 @@
 import "../styles.css";
+import { createTodo } from "./create-todo";
 
 export const addTodoModal = () => {
   const modal = document.createElement("div");
@@ -13,6 +14,7 @@ export const addTodoModal = () => {
   const todoTitleLabel = document.createElement("label");
   todoTitleLabel.textContent = "Title";
   const todoTitleInput = document.createElement("input");
+
   todoTitleContainer.append(todoTitleLabel, todoTitleInput);
   todoTitleContainer.classList.add("todo-input-container");
 
@@ -20,6 +22,7 @@ export const addTodoModal = () => {
   const todoDescriptionLabel = document.createElement("label");
   todoDescriptionLabel.textContent = "Description";
   const todoDescriptionInput = document.createElement("input");
+
   todoDescriptionContainer.append(todoDescriptionLabel, todoDescriptionInput);
   todoDescriptionContainer.classList.add("todo-input-container");
 
@@ -27,6 +30,7 @@ export const addTodoModal = () => {
   const todoDueDateLabel = document.createElement("label");
   todoDueDateLabel.textContent = "DueDate";
   const todoDueDateInput = document.createElement("input");
+
   todoDueDateContainer.append(todoDueDateLabel, todoDueDateInput);
   todoDueDateContainer.classList.add("todo-input-container");
 
@@ -34,6 +38,7 @@ export const addTodoModal = () => {
   const todoPriorityLabel = document.createElement("label");
   todoPriorityLabel.textContent = "Priority";
   const todoPriorityInput = document.createElement("input");
+
   todoPriorityContainer.append(todoPriorityLabel, todoPriorityInput);
   todoPriorityContainer.classList.add("todo-input-container");
 
@@ -50,6 +55,14 @@ export const addTodoModal = () => {
   const addTodoButtonDone = document.createElement("button");
   addTodoButtonDone.textContent = "Add Todo";
   addTodoButtonDone.classList.add("add-todo-button-done");
+  addTodoButtonDone.addEventListener("click", () => {
+    createTodo(
+      todoTitleInput.value,
+      todoDescriptionInput.value,
+      todoDueDateInput.value,
+      todoPriorityInput.value
+    );
+  });
 
   const addTodoButtonCancel = document.createElement("button");
   addTodoButtonCancel.textContent = "Cancel";

@@ -1,7 +1,7 @@
 import { addTodoModal } from "../add-todo/add-todo-modal";
 import "../styles.css";
 
-const todoList = JSON.parse(localStorage.getItem("TODOS"));
+const todoList = JSON.parse(localStorage.getItem("TODOS")) || [];
 
 const showTodos = () => {
   const todos = document.createElement("ul");

@@ -1,5 +1,5 @@
 import { Todo } from "../index";
-const todoList = JSON.parse(localStorage.getItem("TODOS"));
+const todoList = JSON.parse(localStorage.getItem("TODOS")) || [];
 export const createTodo = (
   todoTitle,
   todoDescription,
