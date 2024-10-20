@@ -1,4 +1,5 @@
 import "./styles.css";
+import { showTodoDetail } from "./todo-detail/todo-detail";
 import { showTodoListDisplay } from "./todo-list/todo-list-display";
 
 class Note {
@@ -33,14 +34,11 @@ class Project extends Todo {
   }
 }
 
-const menuContent = document.createElement("h2");
-menuContent.textContent = "Menu";
-
-const todoDetailContent = document.createElement("h2");
-todoDetailContent.textContent = "Todo Detail";
-
 const mainContent = document.getElementById("content");
 mainContent.classList.add("main-content");
+
+const menuContent = document.createElement("h2");
+menuContent.textContent = "Menu";
 
 const menu = document.createElement("div");
 menu.append(menuContent);
@@ -48,8 +46,7 @@ menu.classList.add("section");
 
 const todoListDisplay = showTodoListDisplay();
 
-const todoDetail = document.createElement("div");
-todoDetail.append(todoDetailContent);
+export const todoDetail = showTodoDetail();
 todoDetail.classList.add("section");
 
 mainContent.append(menu, todoListDisplay, todoDetail);
