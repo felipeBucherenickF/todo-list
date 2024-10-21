@@ -1,9 +1,6 @@
 import "../styles.css";
-import { todoDetail } from "../index";
 
-let todo = {};
-
-export const showTodoDetail = (todo) => {
+export const todoDetailDisplay = (todo) => {
   const todoDetail = document.createElement("div");
   todoDetail.classList.add("todo-detail");
 
@@ -42,16 +39,6 @@ export const showTodoDetail = (todo) => {
 
     todoDetail.append(todoTitle, todoDescription, todoDueDate, todoPriority);
   }
-
+  todoDetail.classList.add("section");
   return todoDetail;
-};
-
-const todoList = JSON.parse(localStorage.getItem("TODOS")) || [];
-
-export const cachedTodo = (todoTitle) => {
-  todo = todoList.find((todo) => todo.title === todoTitle);
-
-  const selectedTodoDetail = showTodoDetail(todo);
-  todoDetail.textContent = "";
-  todoDetail.append(selectedTodoDetail);
 };

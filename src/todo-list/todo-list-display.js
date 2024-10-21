@@ -1,61 +1,47 @@
 import { addTodoModal } from "../add-todo/add-todo-modal";
-import { cachedTodo } from "../todo-detail/todo-detail";
+import { selectTodo } from "../todo-detail/select-todo";
 import "../styles.css";
 
-const todoList = JSON.parse(localStorage.getItem("TODOS")) || [];
+const storagedTodoList = JSON.parse(localStorage.getItem("TODOS")) || [];
 
-const showTodos = () => {
+export const todoListDisplay = () => {
   const todos = document.createElement("ul");
-  todoList.forEach((todo) => {
+  storagedTodoList.forEach((todo) => {
     const todoDisplay = document.createElement("div");
     todoDisplay.classList.add("todo-display");
 
-    const todoTitleDisplay = document.createElement("p");
-    todoTitleDisplay.textContent = todo.title;
+    const todoTitle = document.createElement("p");
+    todoTitle.textContent = todo.title;
 
-    const todoDueDateDisplay = document.createElement("p");
-    todoDueDateDisplay.textContent = todo.dueDate;
+    const todoDueDate = document.createElement("p");
+    todoDueDate.textContent = todo.dueDate;
 
-    const todoPriorityDisplay = document.createElement("p");
-    todoPriorityDisplay.textContent = todo.priority;
+    const todoPriority = document.createElement("p");
+    todoPriority.textContent = todo.priority;
 
-    todoDisplay.append(
-      todoTitleDisplay,
-      todoDueDateDisplay,
-      todoPriorityDisplay
-    );
+    todoDisplay.append(todoTitle, todoDueDate, todoPriority);
     todoDisplay.addEventListener("click", () => {
-      cachedTodo(todo.title);
+      selectTodo(todo.title);
     });
     todos.append(todoDisplay);
   });
-  return todos;
-};
 
-const todos = showTodos();
+  const openAddTodoModal = document.createElement("button");
+  openAddTodoModal.textContent = "+";
+  openAddTodoModal.classList.add("open-add-todo-modal");
+  const openAddTodoModalLabel = document.createElement("span");
+  openAddTodoModalLabel.textContent = "Add Todo";
+  openAddTodoModal.append(openAddTodoModalLabel);
 
-export const showTodoListDisplay = () => {
-  const todoListDisplayTitle = document.createElement("h2");
-  todoListDisplayTitle.textContent = "Todo List";
-
-  const todoListDisplayOpenAddTodoModalButton =
-    document.createElement("button");
-  todoListDisplayOpenAddTodoModalButton.textContent = "+";
-  todoListDisplayOpenAddTodoModalButton.classList.add(
-    "open-add-todo-modal-button"
-  );
-  todoListDisplayOpenAddTodoModalButton.addEventListener("click", () => {
+  openAddTodoModal.addEventListener("click", () => {
     const modal = addTodoModal();
     document.body.appendChild(modal);
   });
 
-  const todoListDisplay = document.createElement("div");
-  todoListDisplay.append(
-    todoListDisplayTitle,
-    todos,
-    todoListDisplayOpenAddTodoModalButton
-  );
-  todoListDisplay.classList.add("section");
+  const todoList = document.createElement("div");
+  todoList.append(todos, openAddTodoModal);
+  todoList.classList.add("section");
+  todoList.classList.add("todo-list-display");
 
-  return todoListDisplay;
+  return todoList;
 };

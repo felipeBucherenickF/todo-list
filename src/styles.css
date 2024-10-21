@@ -34,11 +34,30 @@ html {
   border-radius: 0.6rem;
 }
 
-.open-add-todo-modal-button {
+.todo-list-display {
+  position: relative;
+}
+
+.open-add-todo-modal {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
   background-color: transparent;
   border: none;
   cursor: pointer;
   font-size: 3.8rem;
+  color: var(--font-color);
+  border: solid 0.2rem var(--font-color);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin: 0.4rem;
+  padding: 0 1rem;
+  width: calc(100% - 0.8rem);
+  span {
+    font-size: 1.8rem;
+  }
 }
 
 /* Add Todo Modal */
