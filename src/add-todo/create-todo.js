@@ -10,7 +10,8 @@ export const createTodo = (
     todoTitle,
     todoDescription,
     todoDueDate,
-    todoPriority
+    todoPriority,
+    false
   );
   todoList.push(newTodo);
   localStorage.setItem("TODOS", JSON.stringify(todoList));

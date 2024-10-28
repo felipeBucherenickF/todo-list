@@ -8,15 +8,22 @@ export class Note {
   }
 }
 export class Todo {
-  constructor(title, description, dueDate, priority) {
+  constructor(title, description, dueDate, priority, isChecked) {
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;
     this.priority = priority;
+    this.isChecked = isChecked;
     this.notes = [];
   }
   addNote(newNote) {
     this.notes.push(newNote);
+  }
+  checkTodo() {
+    this.isChecked = true;
+  }
+  unCheckTodo() {
+    this.isChecked = false;
   }
 }
 

@@ -10,6 +10,11 @@ export const todoListDisplay = () => {
     const todoDisplay = document.createElement("div");
     todoDisplay.classList.add("todo-display");
 
+    const todoCheckButton = document.createElement("button");
+    todoCheckButton.addEventListener("click", () => {
+      todoDisplay.classList.toggle("checked");
+    });
+
     const todoTitle = document.createElement("p");
     todoTitle.textContent = todo.title;
 
@@ -19,7 +24,7 @@ export const todoListDisplay = () => {
     const todoPriority = document.createElement("p");
     todoPriority.textContent = todo.priority;
 
-    todoDisplay.append(todoTitle, todoDueDate, todoPriority);
+    todoDisplay.append(todoCheckButton, todoTitle, todoDueDate, todoPriority);
     todoDisplay.addEventListener("click", () => {
       selectTodo(todo.title);
     });
