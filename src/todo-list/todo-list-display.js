@@ -1,5 +1,6 @@
 import { addTodoModal } from "../add-todo/add-todo-modal";
 import { selectTodo } from "../todo-detail/select-todo";
+import { checkTodo } from "./check-todo";
 import "../styles.css";
 
 const storagedTodoList = JSON.parse(localStorage.getItem("TODOS")) || [];
@@ -12,7 +13,14 @@ export const todoListDisplay = () => {
 
     const todoCheckButton = document.createElement("button");
     todoCheckButton.addEventListener("click", () => {
-      todoDisplay.classList.toggle("checked");
+      const isChecked = checkTodo(todo.title);
+      if (isChecked) {
+        todoDisplay.classList.add("checked");
+        todoCheckButton.classList.add("button-checked");
+      } else {
+        todoDisplay.classList.remove("checked");
+        todoCheckButton.classList.remove("button-checked");
+      }
     });
 
     const todoTitle = document.createElement("p");
@@ -25,6 +33,7 @@ export const todoListDisplay = () => {
     todoPriority.textContent = todo.priority;
 
     todoDisplay.append(todoCheckButton, todoTitle, todoDueDate, todoPriority);
+
     todoDisplay.addEventListener("click", () => {
       selectTodo(todo.title);
     });

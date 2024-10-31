@@ -138,7 +138,6 @@ html {
     border: solid 2px var(--primary-color);
     border-radius: 50%;
     cursor: pointer;
-    background-color: var(--background-color);
   }
 }
 
@@ -158,4 +157,8 @@ html {
 
 .checked {
   text-decoration: line-through;
+}
+
+.button-checked {
+  background-color: var(--font-color);
 }
