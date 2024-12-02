@@ -89,10 +89,15 @@ html {
           font-size: 1.8rem;
           margin-bottom: 0.4rem;
         }
-        input {
+        input,
+        select {
+          padding-left: 1rem;
+          padding-right: 2rem;
           height: 4rem;
           border: none;
           border-radius: 0.5rem;
+          color: var(--font-color);
+          font-size: 1.8rem;
         }
       }
     }

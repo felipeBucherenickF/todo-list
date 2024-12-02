@@ -37,9 +37,20 @@ export const addTodoModal = () => {
   const todoPriorityContainer = document.createElement("div");
   const todoPriorityLabel = document.createElement("label");
   todoPriorityLabel.textContent = "Priority";
-  const todoPriorityInput = document.createElement("input");
+  const todoPrioritySelect = document.createElement("select");
+  const todoPriorityOptionLow = document.createElement("option");
+  todoPriorityOptionLow.textContent = "Low";
+  const todoPriorityOptionMedium = document.createElement("option");
+  todoPriorityOptionMedium.textContent = "Medium";
+  const todoPriorityOptionHigh = document.createElement("option");
+  todoPriorityOptionHigh.textContent = "High";
+  todoPrioritySelect.append(
+    todoPriorityOptionLow,
+    todoPriorityOptionMedium,
+    todoPriorityOptionHigh
+  );
 
-  todoPriorityContainer.append(todoPriorityLabel, todoPriorityInput);
+  todoPriorityContainer.append(todoPriorityLabel, todoPrioritySelect);
   todoPriorityContainer.classList.add("todo-input-container");
 
   addTodoInputs.append(
@@ -60,7 +71,7 @@ export const addTodoModal = () => {
       todoTitleInput.value,
       todoDescriptionInput.value,
       todoDueDateInput.value,
-      todoPriorityInput.value
+      todoPrioritySelect.value
     );
   });
 
